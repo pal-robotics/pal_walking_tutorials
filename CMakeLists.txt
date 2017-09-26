@@ -51,8 +51,8 @@ target_link_libraries(walk_ik_example  ${catkin_LIBRARIES})
 
 if(CATKIN_ENABLE_TESTING)
 
-add_rostest_gtest(test_walking_service test/reemc_emptyworld_controllers.test test/five_steps_test.cpp)
-target_link_libraries(test_walking_service ${catkin_LIBRARIES} ${PROJECT_NAME} gtest pthread)
+#add_rostest_gtest(test_walking_service test/reemc_emptyworld_controllers.test test/five_steps_test.cpp)
+#target_link_libraries(test_walking_service ${catkin_LIBRARIES} ${PROJECT_NAME} gtest pthread)
 
 endif()
 
