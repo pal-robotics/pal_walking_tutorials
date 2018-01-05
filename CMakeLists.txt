@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
   walking_controller
-  walking_msgs
+  pal_walking_msgs
   rostest
   gazebo_msgs
   actionlib
@@ -17,7 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include test
-  CATKIN_DEPENDS rostest eigen_checks walking_msgs gazebo_msgs actionlib humanoid_nav_msgs pal_robot_tools walking_controller actionlib
+  CATKIN_DEPENDS rostest eigen_checks pal_walking_msgs gazebo_msgs actionlib humanoid_nav_msgs pal_robot_tools walking_controller actionlib
 )
 
 ###########
@@ -35,11 +35,9 @@ add_executable(walk_client_example_topic src/walk_client_example_topic.cpp)
 target_link_libraries(walk_client_example_topic  ${catkin_LIBRARIES})
 
 add_executable(walk_client_example_service src/walk_client_example_service.cpp)
-add_dependencies(walk_client_example_service walking_msgs_generate_messages_cpp)
 target_link_libraries(walk_client_example_service  ${catkin_LIBRARIES})
 
 add_executable(walk_client_example_action src/walk_client_example_action.cpp)
-add_dependencies(walk_client_example_action humanoid_nav_msgs_generate_messages_cpp)
 target_link_libraries(walk_client_example_action  ${catkin_LIBRARIES})
 
 add_executable(walk_safety_example src/safety_example.cpp)

@@ -38,7 +38,7 @@
  */
 
 #include <ros/ros.h>
-#include <walking_msgs/WalkSteps.h>
+#include <pal_walking_msgs/WalkSteps.h>
 
 const std::string WALK_STEPS_SERVICE = "/walking_controller/walk_steps";
 const int nsteps = 5;
@@ -54,14 +54,14 @@ int main(int argc, char **argv)
 
   ros::Duration(5.0).sleep();
 
-  ros::ServiceClient walking_client = n.serviceClient<walking_msgs::WalkSteps>(WALK_STEPS_SERVICE);
+  ros::ServiceClient walking_client = n.serviceClient<pal_walking_msgs::WalkSteps>(WALK_STEPS_SERVICE);
   if(! walking_client.waitForExistence(ros::Duration(5.0)) )
   {
     ROS_ERROR_STREAM("Walking service " << WALK_STEPS_SERVICE << " not available. Check if walking controller has been loaded and started.");
     return 1;
   }
 
-  walking_msgs::WalkSteps srv;
+  pal_walking_msgs::WalkSteps srv;
   srv.request.nsteps = nsteps;
   srv.request.step_length = step_length;
   srv.request.step_time = step_time;
