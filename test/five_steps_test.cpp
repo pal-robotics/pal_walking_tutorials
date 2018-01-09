@@ -7,7 +7,7 @@
 #include <actionlib/client/simple_action_client.h>
 #include <humanoid_nav_msgs/ExecFootstepsAction.h>
 #include <geometry_msgs/Twist.h>
-#include <pal_robot_tools/math_utils.h>
+#include <math_utils/math_utils.h>
 #include <pal_walking_tutorials/LinkStatesListener.h>
 
 typedef actionlib::SimpleActionClient<humanoid_nav_msgs::ExecFootstepsAction> WalkingAction;
