@@ -3,21 +3,21 @@ project(pal_walking_tutorials)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
-## Find catkin macros and libraries
-find_package(catkin REQUIRED COMPONENTS
-  walking_controller
+set(CATKIN_COMPONENTS walking_controller
   pal_walking_msgs
   rostest
   gazebo_msgs
   actionlib
   humanoid_nav_msgs
   eigen_checks
-  pal_robot_tools
-)
+  pal_ros_utils)
+
+## Find catkin macros and libraries
+find_package(catkin REQUIRED COMPONENTS ${CATKIN_COMPONENTS})
 
 catkin_package(
   INCLUDE_DIRS include test
-  CATKIN_DEPENDS rostest eigen_checks pal_walking_msgs gazebo_msgs actionlib humanoid_nav_msgs pal_robot_tools walking_controller actionlib
+  CATKIN_DEPENDS ${CATKIN_COMPONENTS}
 )
 
 ###########

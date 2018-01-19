@@ -18,6 +18,7 @@
   <depend>humanoid_nav_msgs</depend>
   <depend>pal_robot_tools</depend>
   <depend>rostest</depend>
+  <depend>pal_ros_utils</depend>
 
   <export>
   </export>
