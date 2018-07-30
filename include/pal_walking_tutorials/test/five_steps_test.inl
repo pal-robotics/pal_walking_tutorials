@@ -2,7 +2,7 @@
 #include <eigen_checks/gtest.h>
 #include <gtest/gtest.h>
 #include <ros/ros.h>
-#include <walking_msgs/WalkSteps.h>
+#include <pal_walking_msgs/WalkSteps.h>
 #include <gazebo_msgs/LinkStates.h>
 #include <actionlib/client/simple_action_client.h>
 #include <humanoid_nav_msgs/ExecFootstepsAction.h>
@@ -18,8 +18,11 @@ protected:
 
   virtual void SetUp() // Initialization
   {
-    links_listening_.push_back("reemc_full_ft_hey5::leg_left_6_link");
-    links_listening_.push_back("reemc_full_ft_hey5::leg_right_6_link");
+    std::string left_link, right_link;
+    nh_.getParam("left_link", left_link); // reemc_full_ft_hey5::leg_left_6_link
+    nh_.getParam("right_link", right_link); // reemc_full_ft_hey5::leg_right_6_link
+    links_listening_.push_back(left_link);
+    links_listening_.push_back(right_link);
     link_listener_ptr_.reset(new LinkStatesListener(nh_, links_listening_));
     link_listener_ptr_->wait_until_Listener_ready();
   }
@@ -37,10 +40,10 @@ protected:
 // Test that makes 5 steps using a service
 TEST_F(Fixture, Move_forward_five_steps_service)
 {
-  ros::ServiceClient step_service = nh_.serviceClient<walking_msgs::WalkSteps>("/walking_controller/walk_steps");
+  ros::ServiceClient step_service = nh_.serviceClient<pal_walking_msgs::WalkSteps>("/walking_controller/walk_steps");
 
   // Create the msg
-  walking_msgs::WalkSteps msg;
+  pal_walking_msgs::WalkSteps msg;
   msg.request.nsteps = 5;
   msg.request.step_length = 0.25;
   msg.request.step_time = 1.0;
@@ -249,14 +252,4 @@ TEST_F(Fixture, Move_forward_five_steps_topic)
   EXPECT_TRUE(dist_succeed_1);
   EXPECT_TRUE(dist_succeed_2);
   EXPECT_TRUE(dist_succeed_3);
-}
-
-
-int main(int argc, char** argv)
-{
-  ros::init (argc, argv, "five_steps_test");
-
-  testing::InitGoogleTest(&argc, argv);
-
-  return RUN_ALL_TESTS();
 }

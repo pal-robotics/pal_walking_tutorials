@@ -5,7 +5,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 set(CATKIN_COMPONENTS walking_controller
   pal_walking_msgs
-  rostest
   gazebo_msgs
   actionlib
   humanoid_nav_msgs
@@ -16,7 +15,8 @@ set(CATKIN_COMPONENTS walking_controller
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_COMPONENTS})
 
 catkin_package(
-  INCLUDE_DIRS include test
+  INCLUDE_DIRS include
+  LIBRARIES LinkStatesListener
   CATKIN_DEPENDS ${CATKIN_COMPONENTS}
 )
 
@@ -25,11 +25,12 @@ catkin_package(
 ###########
 
 include_directories(
-  include test
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(${PROJECT_NAME}  src/LinkStatesListener.cpp)
+add_library(LinkStatesListener src/LinkStatesListener.cpp)
+target_link_libraries(LinkStatesListener ${catkin_LIBRARIES})
 
 add_executable(walk_client_example_topic src/walk_client_example_topic.cpp)
 target_link_libraries(walk_client_example_topic  ${catkin_LIBRARIES})
@@ -46,14 +47,6 @@ target_link_libraries(walk_safety_example  ${catkin_LIBRARIES})
 add_executable(walk_ik_example src/ik_example.cpp)
 target_link_libraries(walk_ik_example  ${catkin_LIBRARIES})
 
-
-if(CATKIN_ENABLE_TESTING)
-
-#add_rostest_gtest(test_walking_service test/reemc_emptyworld_controllers.test test/five_steps_test.cpp)
-#target_link_libraries(test_walking_service ${catkin_LIBRARIES} ${PROJECT_NAME} gtest pthread)
-
-endif()
-
 #############
 ## Install ##
 #############
@@ -62,8 +55,13 @@ install(TARGETS walk_client_example_topic
                 walk_client_example_action
                 walk_safety_example
                 walk_ik_example
+                LinkStatesListener
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+install(DIRECTORY include/${PROJECT_NAME}/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
+
 
