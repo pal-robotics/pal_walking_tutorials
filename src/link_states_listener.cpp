@@ -1,4 +1,4 @@
-#include <pal_walking_tutorials/LinkStatesListener.h>
+#include <pal_walking_tutorials/link_states_listener.h>
 
 LinkStatesListener::LinkStatesListener(ros::NodeHandle &nh, const std::vector<std::string> &link_names)
 {
