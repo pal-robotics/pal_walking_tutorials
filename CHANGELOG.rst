@@ -2,8 +2,8 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.8 (2018-07-31)
+------------------
 * Merge branch 'walking_tests' into 'dubnium-devel'
   Add generic walking tests
   See merge request control/pal_walking_tutorials!1
