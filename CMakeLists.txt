@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS ${CATKIN_COMPONENTS})
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES LinkStatesListener
+  LIBRARIES link_states_listener
   CATKIN_DEPENDS ${CATKIN_COMPONENTS}
 )
 
@@ -29,8 +29,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(LinkStatesListener src/LinkStatesListener.cpp)
-target_link_libraries(LinkStatesListener ${catkin_LIBRARIES})
+add_library(link_states_listener src/link_states_listener.cpp)
+target_link_libraries(link_states_listener ${catkin_LIBRARIES})
 
 add_executable(walk_client_example_topic src/walk_client_example_topic.cpp)
 target_link_libraries(walk_client_example_topic  ${catkin_LIBRARIES})
@@ -55,7 +55,7 @@ install(TARGETS walk_client_example_topic
                 walk_client_example_action
                 walk_safety_example
                 walk_ik_example
-                LinkStatesListener
+                link_states_listener
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
