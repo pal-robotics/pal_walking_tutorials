@@ -40,6 +40,7 @@
 
 #include <walking_controller/ik/pair_ik_leg_analytic_kajita.h>
 #include <walking_controller/reemc_definitions.h>
+#include <walking_controller/biped_controller.h>
 
 namespace pal{
 
@@ -62,6 +63,8 @@ const eMatrixHom center_to_right_matrix =  initMatrixHom(  eMatrixRot::Identity(
 
 }
 
+
+using namespace pal;
 
 int main(int argc, char **argv)
 {
