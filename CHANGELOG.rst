@@ -2,6 +2,14 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'pid_rate' into 'dubnium-devel'
+  fixed compilation
+  See merge request control/pal_walking_tutorials!2
+* fixed compilation
+* Contributors: Hilario Tome
+
 0.1.8 (2018-07-31)
 ------------------
 * Merge branch 'walking_tests' into 'dubnium-devel'
