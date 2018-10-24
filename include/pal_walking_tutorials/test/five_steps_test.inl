@@ -42,6 +42,8 @@ TEST_F(Fixture, Move_forward_five_steps_service)
 {
   ros::ServiceClient step_service = nh_.serviceClient<pal_walking_msgs::WalkSteps>("/walking_controller/walk_steps");
 
+  ros::Duration(10.0).sleep();
+
   // Create the msg
   pal_walking_msgs::WalkSteps msg;
   msg.request.nsteps = 5;
