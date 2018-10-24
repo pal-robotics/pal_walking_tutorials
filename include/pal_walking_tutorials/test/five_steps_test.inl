@@ -42,7 +42,8 @@ TEST_F(Fixture, Move_forward_five_steps_service)
 {
   ros::ServiceClient step_service = nh_.serviceClient<pal_walking_msgs::WalkSteps>("/walking_controller/walk_steps");
 
-  ros::Duration(10.0).sleep();
+  // @bug This sleep should be removed and the robot hsould not start walking execution until it has been initialized 
+  ros::Duration(10.0).sleep(); // This sleeps waits for the initialization of the walking controller
 
   // Create the msg
   pal_walking_msgs::WalkSteps msg;
