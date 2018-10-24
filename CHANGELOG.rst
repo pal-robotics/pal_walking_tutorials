@@ -2,6 +2,15 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'test_srv' into 'dubnium-devel'
+  Fix tests adding a sleep at the beginnning
+  See merge request control/pal_walking_tutorials!4
+* Add comments to the test
+* Fix tests adding a sleep at the beginnning
+* Contributors: Adrià Roig, Victor Lopez
+
 0.1.9 (2018-08-24)
 ------------------
 * Merge branch 'pid_rate' into 'dubnium-devel'
