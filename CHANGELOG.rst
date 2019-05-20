@@ -2,8 +2,8 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.11 (2019-05-20)
+-------------------
 * Merge branch 'license-refactor' into 'dubnium-devel'
   Update pal license
   See merge request control/pal_walking_tutorials!5
