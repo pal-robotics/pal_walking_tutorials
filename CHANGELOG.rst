@@ -2,6 +2,14 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'license-refactor' into 'dubnium-devel'
+  Update pal license
+  See merge request control/pal_walking_tutorials!5
+* Update PAL licenses
+* Contributors: Hilario Tome, Victor Lopez
+
 0.1.10 (2018-10-24)
 -------------------
 * Merge branch 'test_srv' into 'dubnium-devel'
