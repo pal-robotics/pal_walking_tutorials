@@ -3,13 +3,12 @@ project(pal_walking_tutorials)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
-set(CATKIN_COMPONENTS walking_controller
+set(CATKIN_COMPONENTS
   pal_walking_msgs
   gazebo_msgs
   actionlib
   humanoid_nav_msgs
-  eigen_checks
-  pal_ros_utils)
+  eigen_checks)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_COMPONENTS})
@@ -41,11 +40,11 @@ target_link_libraries(walk_client_example_service  ${catkin_LIBRARIES})
 add_executable(walk_client_example_action src/walk_client_example_action.cpp)
 target_link_libraries(walk_client_example_action  ${catkin_LIBRARIES})
 
-add_executable(walk_safety_example src/safety_example.cpp)
-target_link_libraries(walk_safety_example  ${catkin_LIBRARIES})
+#add_executable(walk_safety_example src/safety_example.cpp)
+#target_link_libraries(walk_safety_example  ${catkin_LIBRARIES})
 
-add_executable(walk_ik_example src/ik_example.cpp)
-target_link_libraries(walk_ik_example  ${catkin_LIBRARIES})
+#add_executable(walk_ik_example src/ik_example.cpp)
+#target_link_libraries(walk_ik_example  ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -53,8 +52,8 @@ target_link_libraries(walk_ik_example  ${catkin_LIBRARIES})
 install(TARGETS walk_client_example_topic
                 walk_client_example_service
                 walk_client_example_action
-                walk_safety_example
-                walk_ik_example
+                #walk_safety_example
+                #walk_ik_example
                 link_states_listener
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
