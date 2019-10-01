@@ -2,6 +2,15 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add SYSTEM include_directories
+* Merge branch 'public' into 'erbium-devel'
+  Rm private nodes and dependencies
+  See merge request control/pal_walking_tutorials!6
+* Rm private nodes and dependencies
+* Contributors: Adria Roig, Victor Lopez
+
 0.1.11 (2019-05-20)
 -------------------
 * Merge branch 'license-refactor' into 'dubnium-devel'
