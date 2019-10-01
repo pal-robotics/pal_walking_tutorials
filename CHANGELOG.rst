@@ -2,8 +2,8 @@
 Changelog for package pal_walking_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.12 (2019-10-01)
+-------------------
 * Add SYSTEM include_directories
 * Merge branch 'public' into 'erbium-devel'
   Rm private nodes and dependencies
